@@ -199,6 +199,12 @@ namespace spray
 
 } // namespace spray
 
+
+#pragma omp declare reduction(+                                                                  \
+                              : spray::BlockReduction4096 <uint32_t>                                \
+                              : spray::BlockReduction4096 <uint32_t>::ompReduce(&omp_out, &omp_in)) \
+    initializer(spray::BlockReduction4096 <uint32_t>::ompInit(&omp_priv, &omp_orig))
+
 #pragma omp declare reduction(+                                                                \
                               : spray::BlockReduction16 <float>                                \
                               : spray::BlockReduction16 <float>::ompReduce(&omp_out, &omp_in)) \
