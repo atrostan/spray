@@ -192,6 +192,9 @@ namespace spray
   using BlockReduction4096 = AlignedBlockReduction<contentType, 4096>;
 
   template <typename contentType>
+  using BlockReduction8192 = AlignedBlockReduction<contentType, 8192>;
+
+  template <typename contentType>
   using BlockReduction16384 = AlignedBlockReduction<contentType, 16384>;
 
   template <typename contentType>
@@ -263,6 +266,16 @@ namespace spray
                               : spray::BlockReduction4096 <double>                                \
                               : spray::BlockReduction4096 <double>::ompReduce(&omp_out, &omp_in)) \
     initializer(spray::BlockReduction4096 <double>::ompInit(&omp_priv, &omp_orig))
+
+#pragma omp declare reduction(+                                                                  \
+                              : spray::BlockReduction8192 <float>                                \
+                              : spray::BlockReduction8192 <float>::ompReduce(&omp_out, &omp_in)) \
+    initializer(spray::BlockReduction8192 <float>::ompInit(&omp_priv, &omp_orig))
+#pragma omp declare reduction(+                                                                   \
+                              : spray::BlockReduction8192 <double>                                \
+                              : spray::BlockReduction8192 <double>::ompReduce(&omp_out, &omp_in)) \
+    initializer(spray::BlockReduction8192 <double>::ompInit(&omp_priv, &omp_orig))
+
 #pragma omp declare reduction(+                                                                   \
                               : spray::BlockReduction16384 <float>                                \
                               : spray::BlockReduction16384 <float>::ompReduce(&omp_out, &omp_in)) \
