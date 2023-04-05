@@ -4,8 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-const uint16_t BSIZE = 1024;
-
 namespace spray {
 template <typename contentType> class BlockReduction {
 public:
