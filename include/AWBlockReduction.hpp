@@ -211,115 +211,115 @@ namespace spray
 
 } // namespace spray
 
-#pragma omp declare reduction(+                                                                     \
-                              : spray::BlockReduction4096 <uint32_t>                                \
-                              : spray::BlockReduction4096 <uint32_t>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction4096 <uint32_t>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                     \
+//                               : spray::BlockReduction4096 <uint32_t>                                \
+//                               : spray::BlockReduction4096 <uint32_t>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction4096 <uint32_t>::ompInit(&omp_priv, &omp_orig))
 
-#pragma omp declare reduction(+                                                                \
-                              : spray::BlockReduction16 <float>                                \
-                              : spray::BlockReduction16 <float>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction16 <float>::ompInit(&omp_priv, &omp_orig))
-#pragma omp declare reduction(+                                                                 \
-                              : spray::BlockReduction16 <double>                                \
-                              : spray::BlockReduction16 <double>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction16 <double>::ompInit(&omp_priv, &omp_orig))
-#pragma omp declare reduction(+                                                                \
-                              : spray::BlockReduction64 <float>                                \
-                              : spray::BlockReduction64 <float>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction64 <float>::ompInit(&omp_priv, &omp_orig))
-#pragma omp declare reduction(+                                                                 \
-                              : spray::BlockReduction64 <double>                                \
-                              : spray::BlockReduction64 <double>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction64 <double>::ompInit(&omp_priv, &omp_orig))
-#pragma omp declare reduction(+                                                                 \
-                              : spray::BlockReduction256 <float>                                \
-                              : spray::BlockReduction256 <float>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction256 <float>::ompInit(&omp_priv, &omp_orig))
-#pragma omp declare reduction(+                                                                  \
-                              : spray::BlockReduction256 <double>                                \
-                              : spray::BlockReduction256 <double>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction256 <double>::ompInit(&omp_priv, &omp_orig))
-#pragma omp declare reduction(+                                                                  \
-                              : spray::BlockReduction1024 <float>                                \
-                              : spray::BlockReduction1024 <float>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction1024 <float>::ompInit(&omp_priv, &omp_orig))
-#pragma omp declare reduction(+                                                                   \
-                              : spray::BlockReduction1024 <double>                                \
-                              : spray::BlockReduction1024 <double>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction1024 <double>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                \
+//                               : spray::BlockReduction16 <float>                                \
+//                               : spray::BlockReduction16 <float>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction16 <float>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                 \
+//                               : spray::BlockReduction16 <double>                                \
+//                               : spray::BlockReduction16 <double>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction16 <double>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                \
+//                               : spray::BlockReduction64 <float>                                \
+//                               : spray::BlockReduction64 <float>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction64 <float>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                 \
+//                               : spray::BlockReduction64 <double>                                \
+//                               : spray::BlockReduction64 <double>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction64 <double>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                 \
+//                               : spray::BlockReduction256 <float>                                \
+//                               : spray::BlockReduction256 <float>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction256 <float>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                  \
+//                               : spray::BlockReduction256 <double>                                \
+//                               : spray::BlockReduction256 <double>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction256 <double>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                  \
+//                               : spray::BlockReduction1024 <float>                                \
+//                               : spray::BlockReduction1024 <float>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction1024 <float>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                   \
+//                               : spray::BlockReduction1024 <double>                                \
+//                               : spray::BlockReduction1024 <double>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction1024 <double>::ompInit(&omp_priv, &omp_orig))
 
-#pragma omp declare reduction(+                                                                  \
-                              : spray::BlockReduction2048 <float>                                \
-                              : spray::BlockReduction2048 <float>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction2048 <float>::ompInit(&omp_priv, &omp_orig))
-#pragma omp declare reduction(+                                                                   \
-                              : spray::BlockReduction2048 <double>                                \
-                              : spray::BlockReduction2048 <double>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction2048 <double>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                  \
+//                               : spray::BlockReduction2048 <float>                                \
+//                               : spray::BlockReduction2048 <float>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction2048 <float>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                   \
+//                               : spray::BlockReduction2048 <double>                                \
+//                               : spray::BlockReduction2048 <double>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction2048 <double>::ompInit(&omp_priv, &omp_orig))
 
-#pragma omp declare reduction(+                                                                  \
-                              : spray::BlockReduction4096 <float>                                \
-                              : spray::BlockReduction4096 <float>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction4096 <float>::ompInit(&omp_priv, &omp_orig))
-#pragma omp declare reduction(+                                                                   \
-                              : spray::BlockReduction4096 <double>                                \
-                              : spray::BlockReduction4096 <double>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction4096 <double>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                  \
+//                               : spray::BlockReduction4096 <float>                                \
+//                               : spray::BlockReduction4096 <float>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction4096 <float>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                   \
+//                               : spray::BlockReduction4096 <double>                                \
+//                               : spray::BlockReduction4096 <double>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction4096 <double>::ompInit(&omp_priv, &omp_orig))
 
-#pragma omp declare reduction(+                                                                  \
-                              : spray::BlockReduction8192 <float>                                \
-                              : spray::BlockReduction8192 <float>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction8192 <float>::ompInit(&omp_priv, &omp_orig))
-#pragma omp declare reduction(+                                                                   \
-                              : spray::BlockReduction8192 <double>                                \
-                              : spray::BlockReduction8192 <double>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction8192 <double>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                  \
+//                               : spray::BlockReduction8192 <float>                                \
+//                               : spray::BlockReduction8192 <float>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction8192 <float>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                   \
+//                               : spray::BlockReduction8192 <double>                                \
+//                               : spray::BlockReduction8192 <double>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction8192 <double>::ompInit(&omp_priv, &omp_orig))
 
-#pragma omp declare reduction(+                                                                   \
-                              : spray::BlockReduction16384 <float>                                \
-                              : spray::BlockReduction16384 <float>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction16384 <float>::ompInit(&omp_priv, &omp_orig))
-#pragma omp declare reduction(+                                                                    \
-                              : spray::BlockReduction16384 <double>                                \
-                              : spray::BlockReduction16384 <double>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction16384 <double>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                   \
+//                               : spray::BlockReduction16384 <float>                                \
+//                               : spray::BlockReduction16384 <float>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction16384 <float>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                    \
+//                               : spray::BlockReduction16384 <double>                                \
+//                               : spray::BlockReduction16384 <double>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction16384 <double>::ompInit(&omp_priv, &omp_orig))
 
-#pragma omp declare reduction(+                                                                   \
-                              : spray::BlockReduction32768 <float>                                \
-                              : spray::BlockReduction32768 <float>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction32768 <float>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                   \
+//                               : spray::BlockReduction32768 <float>                                \
+//                               : spray::BlockReduction32768 <float>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction32768 <float>::ompInit(&omp_priv, &omp_orig))
 
-#pragma omp declare reduction(+                                                                    \
-                              : spray::BlockReduction32768 <double>                                \
-                              : spray::BlockReduction32768 <double>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction32768 <double>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                    \
+//                               : spray::BlockReduction32768 <double>                                \
+//                               : spray::BlockReduction32768 <double>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction32768 <double>::ompInit(&omp_priv, &omp_orig))
 
-#pragma omp declare reduction(+                                                                   \
-                              : spray::BlockReduction65536 <float>                                \
-                              : spray::BlockReduction65536 <float>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction65536 <float>::ompInit(&omp_priv, &omp_orig))
-#pragma omp declare reduction(+                                                                    \
-                              : spray::BlockReduction65536 <double>                                \
-                              : spray::BlockReduction65536 <double>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction65536 <double>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                   \
+//                               : spray::BlockReduction65536 <float>                                \
+//                               : spray::BlockReduction65536 <float>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction65536 <float>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                    \
+//                               : spray::BlockReduction65536 <double>                                \
+//                               : spray::BlockReduction65536 <double>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction65536 <double>::ompInit(&omp_priv, &omp_orig))
 
-#pragma omp declare reduction(+                                                                    \
-                              : spray::BlockReduction131072 <float>                                \
-                              : spray::BlockReduction131072 <float>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction131072 <float>::ompInit(&omp_priv, &omp_orig))
-#pragma omp declare reduction(+                                                                     \
-                              : spray::BlockReduction131072 <double>                                \
-                              : spray::BlockReduction131072 <double>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction131072 <double>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                    \
+//                               : spray::BlockReduction131072 <float>                                \
+//                               : spray::BlockReduction131072 <float>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction131072 <float>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                     \
+//                               : spray::BlockReduction131072 <double>                                \
+//                               : spray::BlockReduction131072 <double>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction131072 <double>::ompInit(&omp_priv, &omp_orig))
 
-#pragma omp declare reduction(+                                                                    \
-                              : spray::BlockReduction262144 <float>                                \
-                              : spray::BlockReduction262144 <float>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction262144 <float>::ompInit(&omp_priv, &omp_orig))
-#pragma omp declare reduction(+                                                                     \
-                              : spray::BlockReduction262144 <double>                                \
-                              : spray::BlockReduction262144 <double>::ompReduce(&omp_out, &omp_in)) \
-    initializer(spray::BlockReduction262144 <double>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                    \
+//                               : spray::BlockReduction262144 <float>                                \
+//                               : spray::BlockReduction262144 <float>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction262144 <float>::ompInit(&omp_priv, &omp_orig))
+// #pragma omp declare reduction(+                                                                     \
+//                               : spray::BlockReduction262144 <double>                                \
+//                               : spray::BlockReduction262144 <double>::ompReduce(&omp_out, &omp_in)) \
+//     initializer(spray::BlockReduction262144 <double>::ompInit(&omp_priv, &omp_orig))
 
 #endif
